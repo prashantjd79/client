@@ -40,7 +40,7 @@ export default function ProjectDetails() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         projectId: id,
-        sellerId: "68552fdaf87dc067fe24273d", // Hardcoded for now
+        sellerId: "68552fdaf87dc067fe24273d", 
         ...bidForm,
       }),
     });
@@ -105,7 +105,7 @@ const handleComplete = async () => {
     if (res.ok) {
       alert("✅ Project marked as completed and notifications sent.");
 
-      // ✅ Update state immediately so button disappears without refresh
+      
       setProject((prev) => ({ ...prev, status: "Completed" }));
     } else {
       alert(`❌ Failed to mark project as completed. Reason: ${data.error || "Unknown error"}`);
@@ -201,7 +201,7 @@ const handleComplete = async () => {
         </button>
       </form>
 
-      {/* ✅ Show only if NOT completed AND NO deliverables */}
+      {}
       {project.status !== "Completed" && !project.deliverables?.length && (
         <button
           onClick={handleComplete}
@@ -212,14 +212,14 @@ const handleComplete = async () => {
         </button>
       )}
 
-      {/* ✅ Message for uploaded deliverable, waiting for completion */}
+      {}
       {project.deliverables?.length > 0 && project.status !== "Completed" && (
         <p className="mt-4 text-green-600">
           ✅ Deliverable uploaded. Waiting for buyer to mark as complete.
         </p>
       )}
 
-      {/* ✅ Message if already completed */}
+      {}
       {project.status === "Completed" && (
         <p className="mt-4 text-blue-600 font-semibold">✅ Project marked as completed!</p>
       )}

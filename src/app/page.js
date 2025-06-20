@@ -10,7 +10,7 @@ export default function Home() {
     budgetMin: "",
     budgetMax: "",
     deadline: "",
-    buyerId: "68552fdaf87dc067fe24273c", // ✅ Corrected buyer ID
+    buyerId: "68552fdaf87dc067fe24273c", 
   });
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ const fetchProjects = async () => {
   setLoading(true);
   const res = await fetch("http://localhost:5000/api/projects");
   const data = await res.json();
-  // Filter duplicates based on id
+  
   const uniqueProjects = data.filter((project, index, self) =>
     index === self.findIndex((p) => p.id === project.id)
   );
@@ -50,7 +50,7 @@ const fetchProjects = async () => {
         budgetMin: "",
         budgetMax: "",
         deadline: "",
-        buyerId: "68552fdaf87dc067fe24273c", // keep after reset
+        buyerId: "68552fdaf87dc067fe24273c", 
       });
     }
     setLoading(false);
